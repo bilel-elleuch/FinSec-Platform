@@ -55,8 +55,9 @@ def ip():
 
 @app.route('/info')
 def toto():
+    x= "ya3tik 3asba ya kchaw"
     print("ya3tik 3asba ya kchaw")
-    return None
+    return x
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
