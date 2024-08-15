@@ -2,6 +2,7 @@ import os
 import psycopg2
 from pymongo import MongoClient
 from flask import Flask
+import requests
 
 app = Flask(__name__)
 
@@ -40,6 +41,17 @@ def test_mongo():
         return f"Connected to MongoDB: Databases - {db_list}"
     except Exception as e:
         return f"Failed to connect to MongoDB: {str(e)}"
+
+@app.route('/ip')
+def ip():
+
+
+# Fetch the public IP address
+    response = requests.get('https://api.ipify.org')
+    public_ip_address = response.text
+
+    print("Your public IP address is:", public_ip_address)
+    return public_ip_address
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
