@@ -19,7 +19,7 @@ mongo_db = mongo_client['your_mongo_database']
 
 @app.route('/')
 def home():
-  return 'Hello from Flask!'
+  return 'Hello from Flask python!'
 
 @app.route('/test-postgres')
 def test_postgres():
